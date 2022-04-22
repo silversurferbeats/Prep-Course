@@ -130,18 +130,21 @@ function operadoresLogicos(num1, num2, num3) {
   //Si num3 es más grande que num1 y num2, aumentar su valor en 1 y retornar el nuevo valor.
   //0 no es ni positivo ni negativo. Si alguno de los argumentos es 0, retornar "Error".
   //Si no se cumplen ninguna de las condiciones anteriores, retornar false. =Z > .some .every .map
-  if (num1 > num2 && num1 > num3 && num1 > 0){
+
+  if( num1 === 0 || num2 === 0 || num3 === 0){
+    return "Error";
+  }
+  if(num1 < 0 || num2 < 0 || num3 < 0){
+    return "Hay negativos";
+  }
+  if(num1 > num2 && num1 > num3 && num1 > 0){
     return "Número 1 es mayor y positivo";
   }
-  if (num1 < 0 && num2 < 0 && num3 < 0){
-    return "Hay negativos";
-  } 
-  if (num3 > num1 && num3 > num2){
-    return nuevoValor = num3 + 1;
-  } 
-  if (num1 === 0 || num2 === 0 || num3 === 0){
-    return "Error";
-  } 
+  if(num3 > num1 && num3 > num2){
+    var nuevoValor = num3 + 1;
+    return nuevoValor;
+  }
+  return false;
 }
 
 function esPrimo(numero) {
@@ -158,10 +161,14 @@ function esPrimo(numero) {
   //     console.log(primos+': No es primo');
   //   }
   // }
-  for (var i = 2; i < numero; i++){
-    if (numero % i == 0){
+
+  if(numero === 0 || numero === 1){
+    return false;
+  }
+  for(var i = 2; i < numero; i++){
+    if(numero % i === 0){
       return false;
-    } 
+    }
   }
   return true;
 }
@@ -182,19 +189,24 @@ function tablaDelSeis(){
   //Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
   //Escribe tu código aquí 
-  let num = [];
-  for(let cont = o; cont<10; cont++){
-    num[cont] = 6*cont;
+
+  var array = [];
+  for(var i = 0; i <= 10; i++){
+    var x = i * 6;
+    array.push(x);
   }
-  return num;
+  return array;
 }
 
 function tieneTresDigitos(numero){
   //Leer un número entero y retornar true si tiene 3 dígitos. Caso contrario, retorna false.
   //Escribe tu código 
-  if(numero.toString().length > 3){
+
+  var string = numero.toString();
+  if(string.length === 3){
     return true;
-  } else {
+  }
+  if(string.length !== 3){
     return false;
   }
 }
@@ -203,6 +215,22 @@ function doWhile(numero) {
   //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
   //Retornar el valor final.
   //Usar el bucle do ... while.
+  var i = 0;
+  var suma = numero;
+  do{
+    suma = suma + 5;
+    i++;
+  }while (i < 8)
+  return suma;
+}
+function fn(){
+  for(var i = 0; i > 10; i++){
+
+  }
+  var i = 0
+  do{
+    i++;
+  }while (i > 10)
 }
 
 
